@@ -1,6 +1,8 @@
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+import jdk.internal.dynalink.beans.StaticClass;
 
 import java.awt.*;
+import java.math.BigInteger;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -241,18 +243,18 @@ public class JavaTask {
         System.out.println(temp);
     }
 
-    public static int fibo(int n) {
+    public static int fib(int n) {
         if(n == 1 || n == 2) {
             return 1;
         } else {
-          return  fibo(n - 1) + fibo(n - 2);
+          return  fib(n - 1) + fib(n - 2);
         }
     }
-    public static void fibonacci(String[] args) {
+    public static void fibmain(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         int n = scanner.nextInt();
-        System.out.println(fibo(n));
+        System.out.println(fib(n));
     }
 
     public static void fatorsum(String[] args) {
@@ -361,14 +363,70 @@ public class JavaTask {
             System.out.print(n % 10 + " ");
         }
     }
-    public static int sumEverone(int n) {
+
+    public static int Sum(int n) {
+        if(n == 1) {
+            return 1;
+        }else {
+            return Sum(n - 1) + n;
+        }
+    }
+
+
+    public static int factor(int n) {
+        if(n == 1) {
+            return 1;
+        }else {
+            return n * factor(n - 1);
+        }
+    }
+
+    public static int jumpStep(int n) {
+        if(n == 1)
+            return 1;
+        if(n == 2)
+            return 2;
+        return jumpStep(n - 1) + jumpStep(n - 2);
+    }
+    public static void jumpmain(String[] args) {
+        System.out.println(jumpStep(7));
+    }
+
+
+    public static int integerSum(int n) {
         if(n < 10)
             return n;
         else {
-            return sumEverone(n / 10) + n % 10;
+            return integerSum(n / 10) + n % 10;
         }
     }
+    public static void integerSummain(String[] args) {
+        System.out.println(integerSum(1234));
+    }
+
+    public static void hanoi(int n, char a, char b, char c) {
+        if(n == 1)
+            changehannoi(a, c);
+        else {
+            hanoi(n - 1, a, c, b);
+            changehannoi(a, c);
+            hanoi(n - 1, b, a, c);
+        }
+    }
+    public static void changehannoi(char a, char b) {
+        System.out.println(a + "->" + b);
+    }
+    public static void hanoimain(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        hanoi(n, 'A', 'B', 'C');
+    }
+
     public static void main(String[] args) {
-        System.out.println(sumEverone(1234));
+        Scanner scanner = new Scanner(System.in);
+
+        BigInteger n = scanner.nextBigInteger();
+        BigInteger m = scanner.nextBigInteger();
+        System.out.println(n.add(m));
     }
 }
