@@ -1,7 +1,7 @@
-package TestDemo;
+package TestDemo.KeyWord;
 
-import xxx.Desk;
-import xxx.Wood;
+import extendTest.Desk;
+import extendTest.Wood;
 
 /**
  * Created with IntelliJ IDEA.
