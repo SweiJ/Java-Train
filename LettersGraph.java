@@ -1,4 +1,4 @@
-package TestDemo.xxx;
+package TestDemo.KeyWord;
 
 import java.util.Scanner;
 
