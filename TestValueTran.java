@@ -1,4 +1,4 @@
-package TestDemo;
+package TestDemo.KeyWord;
 
 /**
  * Created with IntelliJ IDEA.
