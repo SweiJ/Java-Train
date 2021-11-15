@@ -1,4 +1,4 @@
-package TestDemo.xxx;
+package TestDemo.LinkList.MergeList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -82,18 +82,4 @@ public class MergeListTest {
         }
         return newHead.next;
     }
-
-//    public ListNode partition (int x) {
-//        ListNode bs = null;
-//        ListNode be = null;
-//        ListNode as = null;
-//        ListNode ae = null;
-//        ListNode cur = head;
-//        while( cur != null) {
-//            if(cur.value < x) {
-//                bs = cur;
-//                cur = cur.next;
-//            }
-//        }
-//    }
 }
