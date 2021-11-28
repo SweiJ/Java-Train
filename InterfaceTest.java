@@ -1,4 +1,4 @@
-package interfacePack;
+package extend;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -33,16 +33,16 @@ public class InterfaceTest {
         System.out.println(Arrays.toString(person));
     }
     public static void main(String[] args) {
-        interfacePack.Student[] students = new interfacePack.Student[3];
-        students[0] = new interfacePack.Student("小明", 20, 68);
-        students[1] = new interfacePack.Student("小红", 21, 78);
-        students[2] = new interfacePack.Student("小李", 20, 99);
+        Student[] students = new Student[3];
+        students[0] = new Student("小明", 20, 68);
+        students[1] = new Student("小红", 21, 78);
+        students[2] = new Student("小李", 20, 99);
         System.out.println(Arrays.toString(students));
         Arrays.sort(students);
         System.out.println(Arrays.toString(students));
     }
 }
-class Student implements Comparable<interfacePack.Student> {
+class Student implements Comparable<Student> {
 
     private String name;
     private int age;
@@ -64,7 +64,7 @@ class Student implements Comparable<interfacePack.Student> {
     }
 
     @Override
-    public int compareTo(interfacePack.Student o) {
+    public int compareTo(Student o) {
         return this.age - o.age;
     }
 }
