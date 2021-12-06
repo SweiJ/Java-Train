@@ -1,80 +1,38 @@
-package TestDemo.LinkList;
+package gather.list;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
  * Description:
  * User: SweiJ
- * Date: 2021-11-06
- * Time: 19:19
+ * Date: 2021-11-28
+ * Time: 16:20
  */
 public class LinkListTest {
     public static void main(String[] args) {
-        MyLinkList myLinkList1 = new MyLinkList();
-        myLinkList1.addLast(21);
-        myLinkList1.addLast(10);
-        myLinkList1.addLast(12);
-        myLinkList1.addLast(26);
-        myLinkList1.addLast(56);
+        /**
+         * 链表集合 基于双向链表，可以存储在分散的内存中，每增加一个元素就需要一个node对象
+         * 适合做数据插入和删除操作，链表能用iterator迭代器和for循环注意遍历
+         * 当使用for循环遍历，通过get(i)取得的每一个元素都需要对list重新进行遍历
+         * 不是线程安全的
+         */
+        List<String> list = new LinkedList<>();
+        list.add("xiao");
+        list.add("wei");
+        list.add("jia");
 
-//        myLinkList2.head.next.next = myLinkList1.head.next;
-    }
-    public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        if(headA == null && headB == null) {
-            return null;
-        }
-        ListNode pl = headA;
-        ListNode ps = headB;
-        int lenA = 0;
-        int lenB = 0;
-
-        while(pl != null) {
-            lenA++;
-            pl = pl.next;
-        }
-        while(ps != null) {
-            lenB++;
-            ps = ps.next;
-        }
-        pl = headA;
-        ps = headB;
-        int len = lenA - lenB;
-        if(len < 0) {
-            pl = headB;
-            ps = headA;
-            len = -len;
+        Iterator<String> it = list.iterator();
+        while(it.hasNext()) {
+            System.out.println(it.next());
         }
 
-        while(len != 0) {
-            pl = pl.next;
-            len--;
+        System.out.println(list.get(2));
+        for (int i = 0; i < list.size(); i++) {
+            String str = list.get(i);
+            System.out.println(str);
         }
-        while(pl != ps) {
-            pl = pl.next;
-            ps = ps.next;
-        }
-        return pl;
-    }
-    public static ListNode detectCycle(ListNode head) {
-        if(head == null) {
-            return null;
-        }
-        ListNode cur = head;
-        ListNode fast = head;
-        ListNode slow = head;
-        while(fast != null && fast.next != null) {
-            fast = fast.next.next;
-            slow = slow.next;
-            if(fast == slow) {
-                break;
-            }
-        }
-        if(fast != null || fast.next != null){
-            return null;
-        }
-        while(fast != cur) {
-            cur = cur.next;
-            fast = fast.next;
-        }
-        return cur;
     }
 }
