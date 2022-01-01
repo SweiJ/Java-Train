@@ -1,4 +1,4 @@
-package com.swei.socketTest;
+package com.swei.socketthread;
 
 import java.io.*;
 import java.net.Socket;
@@ -23,14 +23,13 @@ public class SocketClient {
         InputStream is = null;
         DataInputStream dis = null;
         try {
-            // 客户端使用socket套接字接收主机ip和端口号
             socket = new Socket("SweiPC", 8888);
             os = socket.getOutputStream();
             oos = new ObjectOutputStream(os);
             oos.writeObject(new User(name, pwd));
 
             is = socket.getInputStream();
-            dis = new DataInputStream(is);
+           dis = new DataInputStream(is);
             if(dis.readBoolean()) {
                 System.out.println("登陆成功！");
             } else {
